@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="pregunta_chocolate">El chocolate es caro</string>
+    <string name="pregunta_33">Si repruebas 1 vez una materia caes en artículo 33</string>
+    <string name="pregunta_proyecto">Si eres del nuevo plan es obligatorio realizar proyecto para titularte</string>
+    <string name="pregunta_bajas">Solamente me puedo de dar de baja de la carrera la primer semana de clases</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correcto!!</string>
+    <string name="incorrect_toast">Incorrecto!!</string>
+    <string name="next_button">Siguente pregunta</string>
+</resources>
