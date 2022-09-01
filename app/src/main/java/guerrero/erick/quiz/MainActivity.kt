@@ -27,25 +27,40 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.trueButton.setOnClickListener { view: View ->
-            val mySnack = Snackbar.make(view,R.string.correct_toast,Snackbar.LENGTH_LONG)
-            mySnack.setBackgroundTint(resources.getColor(R.color.naranja))
-            mySnack.show()
+
+            checkAnswer(true,view)
         }
 
         binding.falseButton.setOnClickListener { view:View->
-            Toast.makeText(this,R.string.incorrect_toast,Toast.LENGTH_LONG).show()
+            checkAnswer(false,view)
         }
 
         binding.nextButton.setOnClickListener { view:View ->
             indice = (indice + 1 ) % bancoPreguntas.size
-            val preguntaTextResId = bancoPreguntas[indice].textoPregunta
-            binding.questionText.setText(preguntaTextResId)
+            updateQuestion()
         }
+        updateQuestion()
+    }
 
+    private fun updateQuestion(){
         val preguntaTextResId = bancoPreguntas[indice].textoPregunta
         binding.questionText.setText(preguntaTextResId)
+    }
 
-
-
+    private fun checkAnswer(userAnswer:Boolean, view:View){
+        val correctAnswer = bancoPreguntas[indice].respuesta
+        val messageResId = if (userAnswer == correctAnswer){
+            R.string.correct_toast
+        }else{
+            R.string.incorrect_toast
+        }
+        val colorBackground = if(userAnswer == correctAnswer){
+            R.color.verde
+        }else{
+            R.color.rojo
+        }
+        val mySnack = Snackbar.make(view,messageResId,Snackbar.LENGTH_LONG)
+        mySnack.setBackgroundTint(getColor(colorBackground))
+        mySnack.show()
     }
 }
