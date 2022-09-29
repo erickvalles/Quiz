@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 
 private const val TAG = "QuizViewModel"
-private const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
+public const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
 class QuizViewModel(private val savedStateHandle:SavedStateHandle): ViewModel() {
     private val bancoPreguntas = listOf(
         Pregunta(R.string.pregunta_chocolate,false),
@@ -24,6 +24,7 @@ class QuizViewModel(private val savedStateHandle:SavedStateHandle): ViewModel() 
         get() = bancoPreguntas[indice].textoPregunta
 
     fun siguientePregunta(){
+
         indice = (indice+1)%bancoPreguntas.size
     }
 }
